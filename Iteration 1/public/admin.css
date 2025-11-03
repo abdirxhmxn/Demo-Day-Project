@@ -1,0 +1,50 @@
+*{
+    box-sizing: border-box;
+}
+html{
+    font-size: 62.5%;
+}
+body{
+    border: 1px solid;
+    width: 60%;
+    height: 80em;
+    margin: 0 auto;
+}
+h1{
+    border: 1px solid;
+    text-align: center;
+    height: 2em;
+    margin-top: 0%;
+    padding-top: .6em;
+    font-size: 3rem;
+}
+section{
+    border: 1px solid;
+    display: flex;
+    justify-content: space-between;
+    height: 20em;
+    margin-top: 2em;
+}
+section div{
+    border: 1px solid;
+    height: 20em;
+    padding: 2em;
+    width: 30%;
+}
+.down{
+    border: 1px solid;
+    height: 50em;
+    margin-top: 5em;
+}
+.down h2{
+    font-size: 2rem;
+}
+.down li{
+    font-size: 2rem;
+    width: 50%;
+}
+.down ul{
+    display: flex;
+    flex-flow: column wrap;
+    height: 40em;
+}

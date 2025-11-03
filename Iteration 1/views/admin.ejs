@@ -1,0 +1,82 @@
+<!-- index.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="admin.css">
+    <title>Teacher Admin</title>
+</head>
+
+<body>
+    <h1>Teacher Admin Page</h1>
+
+
+    <div class="down">
+        <h2>Student Registry</h2>
+        <ul class="Users">
+            <!-- Loop through quotes -->
+            <% for (let i=0; i < Users.length; i++) { %>
+                <li class="quote">
+                    <span>
+                        <%= Users[i].name %>
+                    </span>:
+                    <span>
+                        <%= Users[i].quote %>
+                    </span>
+                    <span><i class="fa fa-thumbs-up" aria-hidden="true"></i></span>
+                    <span><i class="fa fa-thumbs-down" aria-hidden="true"></i></span>
+                    <span><i class="fa fa-trash" aria-hidden="true"></i></span>
+                </li>
+                <% } %>
+        </ul>
+    </div>
+    <section>
+
+        <div>
+            <h2> Add Student</h2>
+            <form action="/student" method="POST">
+                <input type="text" placeholder="name" name="name" />
+                <input type="text" placeholder="quote" name="quote" />
+                <!-- <input type="text" placeholder="grade" name="quote" /> -->
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+
+
+        <div>
+            <h2>Edit Student Info</h2>
+
+            <select name="drop" id="dropDown">
+                <option value="">Select the student</option>
+                <% Users.forEach(user=> { %>
+                    <option value="<%= user._id %>" data-name="<%= user.name %>" data-quote="<%= user.quote %>">
+                        <%= user.name %>
+                    </option>
+                    <% }) %>
+            </select>
+            <input type="text" id="studentName" placeholder="Name">
+            <input type="text" id="studentQuote" placeholder="Quote">
+            <button id="update-button">Update Student</button>
+            <p id="message"></p>
+        </div>
+
+        <div>
+            <h2>Remove Student Info</h2>
+            <select name="drop1" id="dropDown1">
+                <option value="">Select the student</option>
+                <% Users.forEach(user=> { %>
+                    <option value="<%= user._id %>" data-name="<%= user.name %>" data-quote="<%= user.quote %>">
+                        <%= user.name %>
+                    </option>
+                    <% }) %>
+            </select>
+            <input type="text" id="studentName1" placeholder="Name">
+            <input type="text" id="studentQuote1" placeholder="Quote">
+            <button id="delete-button">Delete Student Info</button>
+        </div>
+    </section>
+    <script src="/main.js"></script>
+</body>
+
+</html>
